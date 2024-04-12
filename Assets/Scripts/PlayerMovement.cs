@@ -84,8 +84,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if(!alive)
         {
-            if (myRigidBody.velocity == Vector2.zero) {
-                myAnimator.Play("Splat");
+            if (myRigidBody.velocity.magnitude <= 0.05f) {
+                myAnimator.CrossFadeInFixedTime("Splat" ,0f);
                 myAnimator.SetBool("Moving", false);
             }
             else {
